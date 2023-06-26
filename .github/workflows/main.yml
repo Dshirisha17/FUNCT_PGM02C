@@ -24,7 +24,7 @@ on:
       testFolderPath:
         # passticket input from the user.
         description: Test Location Path
-        default: C:\Users\sandhata\shirisha dodla\TOTAL_TEST\FUNCT_PGM02C\DEMOFUNCT02C\Tests
+        default: C:\Users\sandhata\shirisha dodla\TOTAL_TEST\FUNCT_PGM02C\DEMOFUNCT02C\Tests\Scenarios
         required: true
       workspace:
         # Workspcae location of the customer input from the user.
@@ -62,5 +62,5 @@ jobs:
       # Runs a single command using the runners shell
       - run: echo "${{ secrets.HCI_PASSWORD }}"
       - name: Calling the CLI function
-        run: ${{ inputs.clipath }}\\TotalTestFTCLI.bat -data "${{ inputs.workspace }}" -e "${{ inputs.environment_id}}" -port "${{ inputs.port }}" -u "${{ inputs.userId }}" -p "${{ secrets.HCI_PASSWORD }}" -s "${{ inputs.repository_server }}" -cesu "${{ inputs.userId }}" -cesp "${{ secrets.HCI_PASSWORD }}" -f "${{ inputs.testFolderPath }}" -R -G -v "6" -l "jenkins" -loglevel "info"
+        run: ${{ inputs.clipath }}\\TotalTestFTCLI.bat -data "${{ inputs.workspace }}" -environment "${{ inputs.environment_id}}" -port "${{ inputs.port }}" -u "${{ inputs.userId }}" -p "${{ secrets.HCI_PASSWORD }}" -s "${{ inputs.repository_server }}" -cesu "${{ inputs.userId }}" -cesp "${{ secrets.HCI_PASSWORD }}" -f "${{ inputs.testFolderPath }}" -R -G -v "6" -l "jenkins" -loglevel "info"
      
