@@ -24,7 +24,7 @@ on:
       testFolderPath:
         # passticket input from the user.
         description: Test Location Path
-        default: C:\Users\sandhata\shirisha dodla\TOTAL_TEST\FUNCT_PGM02C\DEMOFUNCT02C\Tests\Scenarios
+        default: C:\Users\sandhata\shirisha dodla\TOTAL_TEST\FUNCT_PGM02C\DEMOFUNCT02C\Tests
         required: true
       workspace:
         # Workspcae location of the customer input from the user.
@@ -34,17 +34,22 @@ on:
       repository_server:
         # repository server input from the user.
         description: Repository Server
-        default: "http://10.10.1.174:48226/"
+        default: " http://10.10.1.174:48226/totaltestapi/"
         required: true
       environment_id:
        # envitonment id 
          description: environment id
          default: 64991a29912e620b50cd466e
          required: true
+      server_details:
+          #serverurl path
+        description: server rul details
+        default: http://10.10.1.174:48226/
+        required: true
       userId:
         # repository server input from the user.
         description: HCI User ID
-        default: ADCDF
+        default: IBMUSER
         required: true
         
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -62,5 +67,5 @@ jobs:
       # Runs a single command using the runners shell
       - run: echo "${{ secrets.HCI_PASSWORD }}"
       - name: Calling the CLI function
-        run: ${{ inputs.clipath }}\\TotalTestFTCLI.bat -data "${{ inputs.workspace }}" -environment "${{ inputs.environment_id}}" -port "${{ inputs.port }}" -u "${{ inputs.userId }}" -p "${{ secrets.HCI_PASSWORD }}" -s "${{ inputs.repository_server }}" -cesu "${{ inputs.userId }}" -cesp "${{ secrets.HCI_PASSWORD }}" -f "${{ inputs.testFolderPath }}" -R -G -v "6" -l "jenkins" -loglevel "info"
+        run: ${{ inputs.clipath }}\\TotalTestFTCLI.bat -data "${{ inputs.workspace }}" -environment "${{ inputs.environment_id}}" -u "${{ inputs.userId }}" -p "${{ secrets.HCI_PASSWORD }}" -s "${{ inputs.repository_server }}" -cesu "${{ inputs.userId }}" -cesp "${{ secrets.HCI_PASSWORD }}" -f "${{ inputs.testFolderPath }}" -R -G -v "6" -l "jenkins" -loglevel "info"
      
