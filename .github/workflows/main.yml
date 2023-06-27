@@ -29,7 +29,7 @@ on:
       jclpath:
           # jcl runner
         description: jcl runner name
-        default: C:\Users\sandhata\shirisha dodla\TOTAL_TEST\FUNCT_PGM02C\DEMOFUNCT02C\Tests\JCLRunner.jcl
+        default: C:\Users\sandhata\shirisha dodla\TOTAL_TEST\FUNCT_PGM02C\DEMOFUNCT02C\Tests\JCL\Runner.jcl
         required: true
       workspace:
         # Workspcae location of the customer input from the user.
